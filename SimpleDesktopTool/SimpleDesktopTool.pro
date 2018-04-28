@@ -18,3 +18,5 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+RC_ICONS += res/icons/main.ico
