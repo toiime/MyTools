@@ -1,7 +1,10 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
+#include <QTimer>
+#include <QDateTime>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,22 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+
+
+    // 用户定义区...
+public:
+
+protected:
+
+private slots:
+    void slotUpdateTime();
+
+private:
+    // 用于显示时间的label
+    QLabel * m_currentTimeLabel;
+    // 用于更新时间显示的定时器
+    QTimer * m_showTimeTimer;
 };
 
 #endif // MAINWINDOW_H
