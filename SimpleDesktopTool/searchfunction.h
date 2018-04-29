@@ -2,6 +2,9 @@
 #define SEARCHFUNCTION_H
 
 #include <QString>
+#include <QFileInfoList>
+#include <QDebug>
+#include <QDir>
 
 
 class SearchFunction
@@ -12,6 +15,16 @@ public:
 
     // 搜索函数
     void searchExecute();
+    // 目录中搜索文件
+    void findFileInDirectory();
+    // 文件中搜索内容
+    void findContentInFile();
+    // 递归遍历文件夹
+    QFileInfoList getFileList(QString path);
+
+
+
+
 
     // 打开文件夹或者文件
     bool m_bIsDirectoryOrFile;

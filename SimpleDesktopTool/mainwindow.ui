@@ -190,7 +190,23 @@
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget"/>
+     <widget class="QTableWidget" name="tableWidget_searchResult">
+      <column>
+       <property name="text">
+        <string>文件路径</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>文件类型</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>文件大小</string>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>

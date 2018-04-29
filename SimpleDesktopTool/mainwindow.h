@@ -35,6 +35,7 @@ private:
 public:
 
 protected:
+    void InitTableWidget();
 
 private slots:
     void slotUpdateTime();

@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
     this->m_searchFunction = new SearchFunction;
     this->ui->radioButton_chooseDirectory->setChecked(true);
 
+    // 初始化tableWidget
+    InitTableWidget();
+
+
 
     // 信号与槽连接...
     // 打开文件或文件夹按钮
@@ -98,4 +102,16 @@ void MainWindow::slotSearch(){
     this->m_searchFunction->searchExecute();
 }
 
+void MainWindow::InitTableWidget(){
+    // 调整列宽度...
+//    int t_width = ui->tableWidget_searchResult->width();
+//    qDebug() << t_width;
+//    int t_columnCount = ui->tableWidget_searchResult->columnCount();
+//    for(int i = 0; i < t_columnCount; ++i){
+//        ui->tableWidget_searchResult->setColumnWidth(i, t_width / t_columnCount);
+//    }
+
+//    ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
+    ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+}
 
