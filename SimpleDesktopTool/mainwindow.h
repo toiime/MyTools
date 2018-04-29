@@ -6,6 +6,10 @@
 #include <QTimer>
 #include <QDateTime>
 #include <QRadioButton>
+#include <QFileDialog>
+#include <QDebug>
+#include <QStandardPaths>
+#include <QMessageBox>
 
 #include "searchfunction.h"
 
@@ -34,6 +38,7 @@ protected:
 private slots:
     void slotUpdateTime();
     void slotChooseDirectory();
+    void slotSearch();
 
 private:
     // 用于显示时间的label

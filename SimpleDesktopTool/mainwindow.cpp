@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // 初始化用于搜索的类
     this->m_searchFunction = new SearchFunction;
-
+    this->ui->radioButton_chooseDirectory->setChecked(true);
 
 
     // 信号与槽连接...
@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->pushButton_chooseDirectory->setText(QStringLiteral("打开文件"));
         this->m_searchFunction->m_bIsDirectoryOrFile = false;
     });
+    // 搜索按钮
+    connect(ui->pushButton_search, &QPushButton::clicked, this, &MainWindow::slotSearch);
 
 }
 
@@ -53,10 +55,35 @@ void MainWindow::slotUpdateTime(){
 void MainWindow::slotChooseDirectory(){
 
     if(this->m_searchFunction->m_bIsDirectoryOrFile){
-        //getExistingDirectory
+        QString currentDirectory = QFileDialog::getExistingDirectory(this
+                                                                     , "ChooseDirectory"
+                                                                     , QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        if(currentDirectory.isEmpty())
+            return;
+        ui->lineEdit_showDirectoryPath->setText(currentDirectory + "/");
+        this->m_searchFunction->m_strDirectoryOrFilePath = currentDirectory;
     }else{
         //getOpenFileName
         //getOpenFileNames
+        QString currentFile = QFileDialog::getOpenFileName(this
+                                                           , "ChooseFile"
+                                                           , QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
+                                                           , "All Files(*.*)");
+        if(currentFile.isEmpty())
+            return;
+        ui->lineEdit_showDirectoryPath->setText(currentFile);
+        this->m_searchFunction->m_strDirectoryOrFilePath = currentFile;
+    }
+}
+
+void MainWindow::slotSearch(){
+    QString keyWord = ui->lineEdit_keyWord->text();
+    qDebug() << keyWord;
+    // 1.判断路径是否为空
+    if(this->m_searchFunction->m_strDirectoryOrFilePath.isEmpty()){
+
+        // 系统提示框太TM丑了...自己写一个...
+
     }
 }
 
