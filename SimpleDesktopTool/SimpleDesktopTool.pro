@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     searchfunction.cpp \
-    dialog_messagebox.cpp
+    dialog_messagebox.cpp \
+    myqstyleditemdelegate.cpp
 
 HEADERS  += mainwindow.h \
     searchfunction.h \
-    dialog_messagebox.h
+    dialog_messagebox.h \
+    myqstyleditemdelegate.h
 
 FORMS    += mainwindow.ui \
     dialog_messagebox.ui

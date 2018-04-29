@@ -124,6 +124,7 @@ void MainWindow::InitTableWidget(){
     // 调整列宽度...
     ui->tableWidget_searchResult->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    ui->tableWidget_searchResult->setItemDelegate(new MyQStyledItemDelegate());
 }
 
 void MainWindow::InsertDataToTableWidget(QFileInfo&fileInfo){

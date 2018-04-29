@@ -13,6 +13,7 @@
 
 #include "searchfunction.h"
 #include "dialog_messagebox.h"
+#include "myqstyleditemdelegate.h"
 
 namespace Ui {
 class MainWindow;

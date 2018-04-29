@@ -191,6 +191,16 @@
     </item>
     <item>
      <widget class="QTableWidget" name="tableWidget_searchResult">
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+        border:none;
+        background:white;
+}
+QTableView::item:selected{
+        color:white;
+        background:rgb(34, 175, 75);    
+}</string>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
@@ -201,7 +211,7 @@
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
       <property name="gridStyle">
-       <enum>Qt::DotLine</enum>
+       <enum>Qt::NoPen</enum>
       </property>
       <column>
        <property name="text">
