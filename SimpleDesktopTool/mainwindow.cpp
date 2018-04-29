@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -18,7 +18,24 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->m_showTimeTimer,SIGNAL(timeout()),this,SLOT(slotUpdateTime()));
     this->m_showTimeTimer->start(1000);
 
+    // 初始化用于搜索的类
+    this->m_searchFunction = new SearchFunction;
 
+
+
+    // 信号与槽连接...
+    // 打开文件或文件夹按钮
+    connect(ui->pushButton_chooseDirectory, &QPushButton::clicked, this, &MainWindow::slotChooseDirectory);
+    // 单选文件夹
+    connect(ui->radioButton_chooseDirectory, &QRadioButton::clicked, this, [&](){
+        ui->pushButton_chooseDirectory->setText(QStringLiteral("打开目录"));
+        this->m_searchFunction->m_bIsDirectoryOrFile = true;
+    });
+    // 单选文件
+    connect(ui->radioButton_chooseFile, &QRadioButton::clicked, this, [&](){
+        ui->pushButton_chooseDirectory->setText(QStringLiteral("打开文件"));
+        this->m_searchFunction->m_bIsDirectoryOrFile = false;
+    });
 
 }
 
@@ -33,5 +50,14 @@ void MainWindow::slotUpdateTime(){
     this->m_currentTimeLabel->setText(" Time is " + strTime + " ");
 }
 
+void MainWindow::slotChooseDirectory(){
+
+    if(this->m_searchFunction->m_bIsDirectoryOrFile){
+        //getExistingDirectory
+    }else{
+        //getOpenFileName
+        //getOpenFileNames
+    }
+}
 
 

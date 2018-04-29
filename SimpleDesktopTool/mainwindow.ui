@@ -58,10 +58,28 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2"/>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QRadioButton" name="radioButton_chooseDirectory">
+           <property name="text">
+            <string>目录</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_chooseFile">
+           <property name="text">
+            <string>文件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_chooseDirectory">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -81,7 +99,7 @@
             </size>
            </property>
            <property name="text">
-            <string>选择文件或文件夹</string>
+            <string>打开目录或文件</string>
            </property>
           </widget>
          </item>

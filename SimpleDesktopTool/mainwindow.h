@@ -5,6 +5,9 @@
 #include <QLabel>
 #include <QTimer>
 #include <QDateTime>
+#include <QRadioButton>
+
+#include "searchfunction.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,12 +33,17 @@ protected:
 
 private slots:
     void slotUpdateTime();
+    void slotChooseDirectory();
 
 private:
     // 用于显示时间的label
     QLabel * m_currentTimeLabel;
     // 用于更新时间显示的定时器
     QTimer * m_showTimeTimer;
+    // 用于搜索的类
+    SearchFunction * m_searchFunction;
+
+
 };
 
 #endif // MAINWINDOW_H
