@@ -32,6 +32,8 @@ public:
     QString m_strDirectoryOrFilePath;
     // 保存要搜索的关键字
     QString m_strKeyWord;
+    // 保存搜索结果
+    QFileInfoList m_fileList;
 };
 
 #endif // SEARCHFUNCTION_H

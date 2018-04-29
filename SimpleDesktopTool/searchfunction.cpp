@@ -8,6 +8,9 @@ SearchFunction::SearchFunction()
 }
 
 void SearchFunction::searchExecute(){
+    // 清空 m_fileList 原有数据
+    m_fileList.clear();
+
     if(m_bIsDirectoryOrFile)
         findFileInDirectory();
     else
@@ -15,9 +18,8 @@ void SearchFunction::searchExecute(){
 }
 
 void SearchFunction::findFileInDirectory(){
-    QFileInfoList file_list = getFileList(m_strDirectoryOrFilePath);
-    for(auto l:file_list)
-        qDebug() << l.absoluteFilePath() ;
+    m_fileList = getFileList(m_strDirectoryOrFilePath);
+
 }
 
 void SearchFunction::findContentInFile(){

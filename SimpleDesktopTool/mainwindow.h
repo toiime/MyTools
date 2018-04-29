@@ -36,6 +36,7 @@ public:
 
 protected:
     void InitTableWidget();
+    void InsertDataToTableWidget(QFileInfo&fileInfo);
 
 private slots:
     void slotUpdateTime();
