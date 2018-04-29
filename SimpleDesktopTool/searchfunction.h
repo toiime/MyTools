@@ -10,6 +10,8 @@ public:
     SearchFunction();
 
 
+    // 搜索函数
+    void searchExecute();
 
     // 打开文件夹或者文件
     bool m_bIsDirectoryOrFile;

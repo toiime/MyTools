@@ -14,11 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    searchfunction.cpp
+    searchfunction.cpp \
+    dialog_messagebox.cpp
 
 HEADERS  += mainwindow.h \
-    searchfunction.h
+    searchfunction.h \
+    dialog_messagebox.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dialog_messagebox.ui
 
 RC_ICONS += res/icons/main.ico

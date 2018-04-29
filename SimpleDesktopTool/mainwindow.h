@@ -12,6 +12,7 @@
 #include <QMessageBox>
 
 #include "searchfunction.h"
+#include "dialog_messagebox.h"
 
 namespace Ui {
 class MainWindow;

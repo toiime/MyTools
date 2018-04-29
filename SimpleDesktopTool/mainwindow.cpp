@@ -78,13 +78,24 @@ void MainWindow::slotChooseDirectory(){
 
 void MainWindow::slotSearch(){
     QString keyWord = ui->lineEdit_keyWord->text();
-    qDebug() << keyWord;
-    // 1.判断路径是否为空
-    if(this->m_searchFunction->m_strDirectoryOrFilePath.isEmpty()){
-
-        // 系统提示框太TM丑了...自己写一个...
-
+    // 1.判断关键字是否为空...
+    if(keyWord.isEmpty()){
+        Dialog_messageBox msg(this);
+        msg.setContent(QStringLiteral("请先输入关键字"));
+        msg.exec();
+        return;
     }
+    this->m_searchFunction->m_strKeyWord = keyWord;
+    // 2.判断路径是否为空
+    if(this->m_searchFunction->m_strDirectoryOrFilePath.isEmpty()){
+        // 系统提示框太TM丑了...自己写一个...
+        Dialog_messageBox msg(this);
+        msg.setContent(QStringLiteral("请先选择目录或文件"));
+        msg.exec();
+        return;
+    }
+    // 3.调用搜索类
+    this->m_searchFunction->searchExecute();
 }
 
 
