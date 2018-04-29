@@ -150,5 +150,8 @@ void MainWindow::InsertDataToTableWidget(QFileInfo&fileInfo){
     }
 
     ui->tableWidget_searchResult->setItem(RowCont,2,new QTableWidgetItem(t_str));
+
+    // 设置文件类型居中显示...
+    ui->tableWidget_searchResult->item(RowCont,1)->setTextAlignment(Qt::AlignCenter);
 }
 
