@@ -125,6 +125,9 @@ void MainWindow::InitTableWidget(){
     ui->tableWidget_searchResult->horizontalHeader()->setStretchLastSection(true);
     ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
     ui->tableWidget_searchResult->setItemDelegate(new MyQStyledItemDelegate());
+
+    ui->tableWidget_searchResult->setMouseTracking(true);    //开启捕获鼠标功能
+
 }
 
 void MainWindow::InsertDataToTableWidget(QFileInfo&fileInfo){

@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     searchfunction.cpp \
     dialog_messagebox.cpp \
-    myqstyleditemdelegate.cpp
+    myqstyleditemdelegate.cpp \
+    myqtablewidget.cpp
 
 HEADERS  += mainwindow.h \
     searchfunction.h \
     dialog_messagebox.h \
-    myqstyleditemdelegate.h
+    myqstyleditemdelegate.h \
+    myqtablewidget.h
 
 FORMS    += mainwindow.ui \
     dialog_messagebox.ui

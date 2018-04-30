@@ -190,15 +190,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget_searchResult">
+     <widget class="MyQTableWidget" name="tableWidget_searchResult">
       <property name="styleSheet">
        <string notr="true">QTableView{
         border:none;
-        background:white;
 }
 QTableView::item:selected{
         color:white;
-        background:rgb(34, 175, 75);    
+        background:rgb(188,220,244);
 }</string>
       </property>
       <property name="editTriggers">
@@ -248,6 +247,13 @@ QTableView::item:selected{
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyQTableWidget</class>
+   <extends>QTableWidget</extends>
+   <header>myqtablewidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
