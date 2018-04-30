@@ -1,4 +1,4 @@
-#include "searchfunction.h"
+﻿#include "searchfunction.h"
 
 SearchFunction::SearchFunction()
 {

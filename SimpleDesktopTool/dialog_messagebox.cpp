@@ -1,4 +1,4 @@
-#include "dialog_messagebox.h"
+﻿#include "dialog_messagebox.h"
 #include "ui_dialog_messagebox.h"
 
 Dialog_messageBox::Dialog_messageBox(QWidget *parent) :

@@ -1,4 +1,4 @@
-#ifndef MYQTABLEWIDGET_H
+﻿#ifndef MYQTABLEWIDGET_H
 #define MYQTABLEWIDGET_H
 
 #include <QTableWidget>

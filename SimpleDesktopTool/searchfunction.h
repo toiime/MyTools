@@ -1,4 +1,4 @@
-#ifndef SEARCHFUNCTION_H
+﻿#ifndef SEARCHFUNCTION_H
 #define SEARCHFUNCTION_H
 
 #include <QString>
