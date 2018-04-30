@@ -20,6 +20,13 @@ void SearchFunction::searchExecute(){
 void SearchFunction::findFileInDirectory(){
     m_fileList = getFileList(m_strDirectoryOrFilePath);
 
+    for(auto iter = m_fileList.begin(); iter != m_fileList.end();){
+        if(!iter->fileName().contains(m_strKeyWord))
+            iter = m_fileList.erase(iter);
+        else
+            ++iter;
+    }
+
 }
 
 void SearchFunction::findContentInFile(){

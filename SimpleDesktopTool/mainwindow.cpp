@@ -42,6 +42,8 @@ MainWindow::MainWindow(QWidget *parent) :
     });
     // 搜索按钮
     connect(ui->pushButton_search, &QPushButton::clicked, this, &MainWindow::slotSearch);
+    // 回车事件
+    connect(ui->lineEdit_keyWord, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
 
 }
 
@@ -115,6 +117,13 @@ void MainWindow::slotSearch(){
     // 4.显示结果
     for(auto & l : m_searchFunction->m_fileList)
         InsertDataToTableWidget(l);
+
+    if(0 == m_searchFunction->m_fileList.size()){
+        Dialog_messageBox msg(this);
+        msg.setContent(QStringLiteral("搜索结果为零..."));
+        msg.exec();
+    }
+
 
     // 恢复搜索按钮...
     ui->pushButton_search->setEnabled(true);
