@@ -184,6 +184,13 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_findFromDirectory">
+           <property name="text">
+            <string>目录中搜索文件内容</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
       </layout>

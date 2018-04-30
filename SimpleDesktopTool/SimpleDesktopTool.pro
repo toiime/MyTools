@@ -23,7 +23,8 @@ HEADERS  += mainwindow.h \
     searchfunction.h \
     dialog_messagebox.h \
     myqstyleditemdelegate.h \
-    myqtablewidget.h
+    myqtablewidget.h \
+    common.h
 
 FORMS    += mainwindow.ui \
     dialog_messagebox.ui

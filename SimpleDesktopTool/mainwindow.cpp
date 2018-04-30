@@ -45,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // 回车事件
     connect(ui->lineEdit_keyWord, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
 
+    // 是否目录中搜索文件内容
+    connect(ui->checkBox_findFromDirectory, &QCheckBox::clicked, this, &MainWindow::slotFindContentFromDirectory);
+
 }
 
 MainWindow::~MainWindow()
@@ -114,15 +117,34 @@ void MainWindow::slotSearch(){
     }
     // 3.调用搜索类
     this->m_searchFunction->searchExecute();
-    // 4.显示结果
-    for(auto & l : m_searchFunction->m_fileList)
-        InsertDataToTableWidget(l);
 
-    if(0 == m_searchFunction->m_fileList.size()){
-        Dialog_messageBox msg(this);
-        msg.setContent(QStringLiteral("搜索结果为零..."));
-        msg.exec();
+
+    // 4.显示结果
+    if(m_searchFunction->m_bIsDirectoryOrFile && !m_searchFunction->m_bIsFindContentFromDirectory){
+        // 目录搜索文件结果...
+        for(auto & l : m_searchFunction->m_fileList)
+            InsertFileInfoToTableWidget(l);
+
+        if(0 == m_searchFunction->m_fileList.size()){
+            Dialog_messageBox msg(this);
+            msg.setContent(QStringLiteral("搜索结果为零..."));
+            msg.exec();
+        }
+    }else if(!m_searchFunction->m_bIsDirectoryOrFile){
+        // 文件中搜索内容结果...
+    }else if(m_searchFunction->m_bIsDirectoryOrFile && m_searchFunction->m_bIsFindContentFromDirectory){
+        // 目录中搜索内容结果...
+        ReInitTableWidget();
+        for(auto & v : m_searchFunction->m_vect_result_file_content)
+            InsertFileContentToTableWidget(v);
+
+        if(0 == m_searchFunction->m_vect_result_file_content.size()){
+            Dialog_messageBox msg(this);
+            msg.setContent(QStringLiteral("搜索结果为零..."));
+            msg.exec();
+        }
     }
+
 
 
     // 恢复搜索按钮...
@@ -139,7 +161,23 @@ void MainWindow::InitTableWidget(){
 
 }
 
-void MainWindow::InsertDataToTableWidget(QFileInfo&fileInfo){
+void MainWindow::ReInitTableWidget(){
+    if(m_searchFunction->m_bIsDirectoryOrFile && !m_searchFunction->m_bIsFindContentFromDirectory){
+        // 目录搜索文件结果...
+
+    }else if(!m_searchFunction->m_bIsDirectoryOrFile){
+        // 文件中搜索内容结果...
+
+    }else if(m_searchFunction->m_bIsDirectoryOrFile && m_searchFunction->m_bIsFindContentFromDirectory){
+        // 目录中搜索内容结果...
+        QStringList header;
+        header << QStringLiteral("文件路径") << QStringLiteral("文件内容");
+        ui->tableWidget_searchResult->setHorizontalHeaderLabels(header);
+		ui->tableWidget_searchResult->setColumnCount(2);
+     }
+}
+
+void MainWindow::InsertFileInfoToTableWidget(QFileInfo&fileInfo){
     int RowCont = ui->tableWidget_searchResult->rowCount();
     ui->tableWidget_searchResult->insertRow(RowCont);
     ui->tableWidget_searchResult->setItem(RowCont,0,new QTableWidgetItem(fileInfo.absoluteFilePath()));
@@ -166,5 +204,22 @@ void MainWindow::InsertDataToTableWidget(QFileInfo&fileInfo){
 
     // 设置文件类型居中显示...
     ui->tableWidget_searchResult->item(RowCont,1)->setTextAlignment(Qt::AlignCenter);
+}
+
+void MainWindow::slotFindContentFromDirectory(){
+    if(Qt::Checked == ui->checkBox_findFromDirectory->checkState())
+        m_searchFunction->m_bIsFindContentFromDirectory = true;
+    else
+        m_searchFunction->m_bIsFindContentFromDirectory = false;
+}
+
+void MainWindow::InsertFileContentToTableWidget(RESULT_DIRECTOR_FIND_CONTENT&fileContent){
+    int RowCont = -1;
+    for(auto l : fileContent.contentList){
+        RowCont = ui->tableWidget_searchResult->rowCount();
+        ui->tableWidget_searchResult->insertRow(RowCont);
+        ui->tableWidget_searchResult->setItem(RowCont,0,new QTableWidgetItem(fileContent.fileInfo.absoluteFilePath()));
+        ui->tableWidget_searchResult->setItem(RowCont,1,new QTableWidgetItem(l));
+    }
 }
 

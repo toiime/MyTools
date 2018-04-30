@@ -38,12 +38,15 @@ public:
 
 protected:
     void InitTableWidget();
-    void InsertDataToTableWidget(QFileInfo&fileInfo);
+    void ReInitTableWidget();
+    void InsertFileInfoToTableWidget(QFileInfo&fileInfo);
+    void InsertFileContentToTableWidget(RESULT_DIRECTOR_FIND_CONTENT&fileContent);
 
 private slots:
     void slotUpdateTime();
     void slotChooseDirectory();
     void slotSearch();
+    void slotFindContentFromDirectory();
 
 private:
     // 用于显示时间的label
