@@ -128,11 +128,8 @@ QFileInfoList SearchFunction::getFileList(QString path)
 void SearchFunction::findContentInDirectory(){
     m_fileList = getFileList(m_strDirectoryOrFilePath);
 
-    for(auto iter = m_fileList.begin(); iter != m_fileList.end();){
-        if(!findContentInFile(*iter))
-            iter = m_fileList.erase(iter);
-        else
-            ++iter;
+    for(auto iter = m_fileList.begin(); iter != m_fileList.end();++iter){
+		findContentInFile(*iter);
     }
 }
 
