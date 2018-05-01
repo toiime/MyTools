@@ -59,10 +59,10 @@ void Dialog_searchCondition::slotButtonOK(){
         ptrMainWindow->m_searchFunction->m_searchCondition.bIsContainSuffix = false;
 
     ptrMainWindow->m_searchFunction->m_searchCondition.strContainSuffix =
-            ui->lineEdit_contain->text().split(".");
+            ui->lineEdit_contain->text().split(".", QString::SplitBehavior::SkipEmptyParts);
     ptrMainWindow->m_searchFunction->m_searchCondition.strNotContainSuffix =
-            ui->lineEdit_notContain->text().split(".");
-
+            ui->lineEdit_notContain->text().split(".", QString::SplitBehavior::SkipEmptyParts);
+	
     this->accept();
 }
 
@@ -70,5 +70,21 @@ void Dialog_searchCondition::InitUserData(){
     MainWindow * ptrMainWindow = (MainWindow*)parentWidget();
     if(ptrMainWindow->m_searchFunction->m_searchCondition.bIsContainSuffix)
         ui->radioButton_contain->setChecked(true);
+
+    QString tmp_str;
+    for(auto & l : ptrMainWindow->m_searchFunction->m_searchCondition.strContainSuffix){
+        tmp_str.append(".");
+        tmp_str.append(l);
+    }
+    if(!tmp_str.isEmpty()){
+        ui->lineEdit_contain->setText(tmp_str);
+        tmp_str.clear();
+    }
+    for(auto & l : ptrMainWindow->m_searchFunction->m_searchCondition.strNotContainSuffix){
+        tmp_str.append(".");
+        tmp_str.append(l);
+    }
+    if(!tmp_str.isEmpty())
+        ui->lineEdit_notContain->setText(tmp_str);
 
 }
