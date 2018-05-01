@@ -54,6 +54,10 @@ public:
 	// 文件搜索内容结果
 	QStringList m_sl_content_from_file;
 
+
+    // 搜索结构体参数...
+    SEARCH_CONDITION m_searchCondition;
+
 };
 
 #endif // SEARCHFUNCTION_H

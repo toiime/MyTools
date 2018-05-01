@@ -2,6 +2,11 @@
 #define DIALOG_SEARCHCONDITION_H
 
 #include <QDialog>
+#include <QString>
+#include <QButtonGroup>
+
+
+
 
 namespace Ui {
 class Dialog_searchCondition;
@@ -17,6 +22,18 @@ public:
 
 private:
     Ui::Dialog_searchCondition *ui;
+
+
+
+protected:
+    void slotButtonOK();
+protected:
+    void InitUserData();
+
+
+private:
+    QButtonGroup * m_buttonGroup;
+
 };
 
 #endif // DIALOG_SEARCHCONDITION_H

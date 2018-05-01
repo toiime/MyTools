@@ -39,14 +39,14 @@ private:
 public:
 
 protected:
-	void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 protected:
     void InitTableWidget();
     void ReInitTableWidget();
     void InsertFileInfoToTableWidget(QFileInfo&fileInfo);
     void InsertFileContentToTableWidget(RESULT_DIRECTOR_FIND_CONTENT&fileContent);
-	void InsertFileContentToTableWidget(QStringList & sl);
+    void InsertFileContentToTableWidget(QStringList & sl);
 
 private slots:
     void slotUpdateTime();
@@ -63,6 +63,10 @@ private:
     SearchFunction * m_searchFunction;
 
 
+
+
+
+    friend class Dialog_searchCondition;
 };
 
 #endif // MAINWINDOW_H

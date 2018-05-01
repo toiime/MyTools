@@ -31,7 +31,7 @@
     </spacer>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="groupBox_fileType">
      <property name="title">
       <string>文件类型</string>
      </property>

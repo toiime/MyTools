@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     dialog_messagebox.cpp \
     myqstyleditemdelegate.cpp \
     myqtablewidget.cpp \
-    dialog_searchcondition.cpp
+    dialog_searchcondition.cpp \
+    tools.cpp
 
 HEADERS  += mainwindow.h \
     searchfunction.h \
@@ -26,7 +27,8 @@ HEADERS  += mainwindow.h \
     myqstyleditemdelegate.h \
     myqtablewidget.h \
     common.h \
-    dialog_searchcondition.h
+    dialog_searchcondition.h \
+    tools.h
 
 FORMS    += mainwindow.ui \
     dialog_messagebox.ui \
