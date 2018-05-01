@@ -252,7 +252,7 @@ void MainWindow::InsertFileContentToTableWidget(QStringList & sl) {
 		RowCont = ui->tableWidget_searchResult->rowCount();
 		ui->tableWidget_searchResult->insertRow(RowCont);
 		ui->tableWidget_searchResult->setItem(RowCont, 0, new QTableWidgetItem(m_searchFunction->m_strDirectoryOrFilePath));
-		ui->tableWidget_searchResult->setItem(RowCont, 1, new QTableWidgetItem(l));
+		ui->tableWidget_searchResult->setItem(RowCont, 1, new QTableWidgetItem(l.trimmed()));
 	}
 }
 
@@ -262,7 +262,7 @@ void MainWindow::InsertFileContentToTableWidget(RESULT_DIRECTOR_FIND_CONTENT&fil
         RowCont = ui->tableWidget_searchResult->rowCount();
         ui->tableWidget_searchResult->insertRow(RowCont);
         ui->tableWidget_searchResult->setItem(RowCont,0,new QTableWidgetItem(fileContent.fileInfo.absoluteFilePath()));
-        ui->tableWidget_searchResult->setItem(RowCont,1,new QTableWidgetItem(l));
+        ui->tableWidget_searchResult->setItem(RowCont,1,new QTableWidgetItem(l.trimmed()));
     }
 }
 
