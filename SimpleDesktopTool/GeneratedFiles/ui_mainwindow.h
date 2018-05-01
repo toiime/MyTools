@@ -48,7 +48,7 @@ public:
     QLineEdit *lineEdit_keyWord;
     QPushButton *pushButton_search;
     QHBoxLayout *horizontalLayout_3;
-    QCheckBox *checkBox;
+    QCheckBox *checkBox_case_sensitive;
     QCheckBox *checkBox_2;
     QCheckBox *checkBox_findFromDirectory;
     MyQTableWidget *tableWidget_searchResult;
@@ -59,7 +59,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(900, 500);
+        MainWindow->resize(979, 500);
         MainWindow->setMinimumSize(QSize(900, 500));
         MainWindow->setStyleSheet(QString::fromUtf8("font: 75 10pt \"\346\245\267\344\275\223\";"));
         centralWidget = new QWidget(MainWindow);
@@ -154,10 +154,10 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        checkBox = new QCheckBox(groupBox);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
+        checkBox_case_sensitive = new QCheckBox(groupBox);
+        checkBox_case_sensitive->setObjectName(QStringLiteral("checkBox_case_sensitive"));
 
-        horizontalLayout_3->addWidget(checkBox);
+        horizontalLayout_3->addWidget(checkBox_case_sensitive);
 
         checkBox_2 = new QCheckBox(groupBox);
         checkBox_2->setObjectName(QStringLiteral("checkBox_2"));
@@ -203,7 +203,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 900, 23));
+        menuBar->setGeometry(QRect(0, 0, 979, 23));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -224,7 +224,7 @@ public:
         pushButton_chooseDirectory->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200\347\233\256\345\275\225", 0));
         label_2->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242\347\233\256\346\240\207:", 0));
         pushButton_search->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242", 0));
-        checkBox->setText(QApplication::translate("MainWindow", "\345\214\272\345\210\206\345\244\247\345\260\217\345\206\231", 0));
+        checkBox_case_sensitive->setText(QApplication::translate("MainWindow", "\345\214\272\345\210\206\345\244\247\345\260\217\345\206\231", 0));
         checkBox_2->setText(QApplication::translate("MainWindow", "\346\250\241\347\263\212\346\220\234\347\264\242", 0));
         checkBox_findFromDirectory->setText(QApplication::translate("MainWindow", "\347\233\256\345\275\225\344\270\255\346\220\234\347\264\242\346\226\207\344\273\266\345\206\205\345\256\271", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_searchResult->horizontalHeaderItem(0);

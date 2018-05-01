@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>979</width>
     <height>500</height>
    </rect>
   </property>
@@ -171,7 +171,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QCheckBox" name="checkBox">
+          <widget class="QCheckBox" name="checkBox_case_sensitive">
            <property name="text">
             <string>区分大小写</string>
            </property>
@@ -246,7 +246,7 @@ QTableView::item:selected{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
+     <width>979</width>
      <height>23</height>
     </rect>
    </property>

@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QStandardPaths>
 #include <QMessageBox>
+#include <QKeyEvent>
 
 #include "searchfunction.h"
 #include "dialog_messagebox.h"
@@ -37,10 +38,14 @@ private:
 public:
 
 protected:
+	void keyPressEvent(QKeyEvent *event);
+
+protected:
     void InitTableWidget();
     void ReInitTableWidget();
     void InsertFileInfoToTableWidget(QFileInfo&fileInfo);
     void InsertFileContentToTableWidget(RESULT_DIRECTOR_FIND_CONTENT&fileContent);
+	void InsertFileContentToTableWidget(QStringList & sl);
 
 private slots:
     void slotUpdateTime();
