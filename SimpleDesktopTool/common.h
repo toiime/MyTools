@@ -1,4 +1,4 @@
-#ifndef COMMON_H
+﻿#ifndef COMMON_H
 #define COMMON_H
 
 // 保存搜索结果的结构体...

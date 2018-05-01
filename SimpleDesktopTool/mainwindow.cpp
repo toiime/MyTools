@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // 设置窗口标题...
     this->setWindowTitle("SimpleDesktopTool");
 
+    // 设置窗口最大化...
+    this->setWindowState(Qt::WindowMaximized);
+
     // 状态栏显示时间...
     this->m_currentTimeLabel = new QLabel;
     ui->statusBar->addPermanentWidget(this->m_currentTimeLabel);
@@ -153,8 +156,12 @@ void MainWindow::slotSearch(){
 
 void MainWindow::InitTableWidget(){
     // 调整列宽度...
-    ui->tableWidget_searchResult->horizontalHeader()->setStretchLastSection(true);
-    ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+//    ui->tableWidget_searchResult->horizontalHeader()->setStretchLastSection(true);
+//    ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+
+    // 均分列 没有水平滚动条...
+    ui->tableWidget_searchResult->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     ui->tableWidget_searchResult->setItemDelegate(new MyQStyledItemDelegate());
 
     ui->tableWidget_searchResult->setMouseTracking(true);    //开启捕获鼠标功能
@@ -164,9 +171,17 @@ void MainWindow::InitTableWidget(){
 void MainWindow::ReInitTableWidget(){
     if(m_searchFunction->m_bIsDirectoryOrFile && !m_searchFunction->m_bIsFindContentFromDirectory){
         // 目录搜索文件结果...
+        QStringList header;
+        header << QStringLiteral("文件路径") << QStringLiteral("文件类型") << QStringLiteral("文件大小");
+        ui->tableWidget_searchResult->setHorizontalHeaderLabels(header);
+        ui->tableWidget_searchResult->setColumnCount(3);
 
     }else if(!m_searchFunction->m_bIsDirectoryOrFile){
         // 文件中搜索内容结果...
+        QStringList header;
+        header << QStringLiteral("文件路径") << QStringLiteral("文件内容");
+        ui->tableWidget_searchResult->setHorizontalHeaderLabels(header);
+        ui->tableWidget_searchResult->setColumnCount(2);
 
     }else if(m_searchFunction->m_bIsDirectoryOrFile && m_searchFunction->m_bIsFindContentFromDirectory){
         // 目录中搜索内容结果...
