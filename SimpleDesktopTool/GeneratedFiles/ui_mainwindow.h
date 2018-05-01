@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
@@ -33,6 +34,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *action_searchCondition;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_2;
     QGroupBox *groupBox;
@@ -53,6 +55,7 @@ public:
     QCheckBox *checkBox_findFromDirectory;
     MyQTableWidget *tableWidget_searchResult;
     QMenuBar *menuBar;
+    QMenu *menu;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -62,6 +65,8 @@ public:
         MainWindow->resize(979, 500);
         MainWindow->setMinimumSize(QSize(900, 500));
         MainWindow->setStyleSheet(QString::fromUtf8("font: 75 10pt \"\346\245\267\344\275\223\";"));
+        action_searchCondition = new QAction(MainWindow);
+        action_searchCondition->setObjectName(QStringLiteral("action_searchCondition"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_2 = new QVBoxLayout(centralWidget);
@@ -204,10 +209,15 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 979, 23));
+        menu = new QMenu(menuBar);
+        menu->setObjectName(QStringLiteral("menu"));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menu->menuAction());
+        menu->addAction(action_searchCondition);
 
         retranslateUi(MainWindow);
 
@@ -217,6 +227,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        action_searchCondition->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242\346\235\241\344\273\266", 0));
         groupBox->setTitle(QApplication::translate("MainWindow", "\346\234\254\345\234\260\346\220\234\347\264\242", 0));
         label->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242\350\214\203\345\233\264:", 0));
         radioButton_chooseDirectory->setText(QApplication::translate("MainWindow", "\347\233\256\345\275\225", 0));
@@ -233,6 +244,7 @@ public:
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "\346\226\207\344\273\266\347\261\273\345\236\213", 0));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget_searchResult->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "\346\226\207\344\273\266\345\244\247\345\260\217", 0));
+        menu->setTitle(QApplication::translate("MainWindow", "\350\256\276\347\275\256", 0));
     } // retranslateUi
 
 };

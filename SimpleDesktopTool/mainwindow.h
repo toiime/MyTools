@@ -15,6 +15,7 @@
 #include "searchfunction.h"
 #include "dialog_messagebox.h"
 #include "myqstyleditemdelegate.h"
+#include "dialog_searchcondition.h"
 
 
 namespace Ui {

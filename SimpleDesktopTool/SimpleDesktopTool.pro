@@ -17,16 +17,19 @@ SOURCES += main.cpp\
     searchfunction.cpp \
     dialog_messagebox.cpp \
     myqstyleditemdelegate.cpp \
-    myqtablewidget.cpp
+    myqtablewidget.cpp \
+    dialog_searchcondition.cpp
 
 HEADERS  += mainwindow.h \
     searchfunction.h \
     dialog_messagebox.h \
     myqstyleditemdelegate.h \
     myqtablewidget.h \
-    common.h
+    common.h \
+    dialog_searchcondition.h
 
 FORMS    += mainwindow.ui \
-    dialog_messagebox.ui
+    dialog_messagebox.ui \
+    dialog_searchcondition.ui
 
 RC_ICONS += res/icons/main.ico

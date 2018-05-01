@@ -60,6 +60,14 @@ MainWindow::MainWindow(QWidget *parent) :
 		else
 			m_searchFunction->m_bIsCaseSensitive = false;
 	});
+
+	// 菜单搜索条件...
+    connect(ui->action_searchCondition, &QAction::triggered, this, [&]() {
+        Dialog_searchCondition searchConditionDlg(this);
+        searchConditionDlg.exec();
+	});
+
+
 }
 
 MainWindow::~MainWindow()
